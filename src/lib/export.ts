@@ -418,7 +418,7 @@ export function downloadPartyStatementExcel(
   rows.push([]);
   rows.push([`Generated on ${format(new Date(), "dd/MM/yyyy")}`]);
 
-  const csv = "\uFEFF" + rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(",")).join("
+  const csv = "\uFEFF" + rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(",")).join("\n");
 ");
   const safeName = party.name.replace(/[^\w\s-]/g, "").trim() || "party";
   downloadBlob(
